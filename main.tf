@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.static_web_apps : {
       for k2, v2 in coalesce(v1.static_web_app_custom_domains, {}) :
       "${k1}/${k2}" => merge(v2, {
-        static_web_app_id = module.static_web_apps.static_web_apps["${k1}"].id
+        static_web_app_id = module.static_web_apps.static_web_apps_id["${k1}"]
       })
     }
   ]...)
@@ -14,7 +14,7 @@ locals {
     for k1, v1 in var.static_web_apps : {
       for k2, v2 in coalesce(v1.static_web_app_function_app_registrations, {}) :
       "${k1}/${k2}" => merge(v2, {
-        static_web_app_id = module.static_web_apps.static_web_apps["${k1}"].id
+        static_web_app_id = module.static_web_apps.static_web_apps_id["${k1}"]
       })
     }
   ]...)
