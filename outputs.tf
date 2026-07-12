@@ -1,4 +1,9 @@
 # --- azurerm_static_web_app ---
+output "static_web_apps_id" {
+  description = "Map of id values across all static_web_apps, keyed the same as var.static_web_apps"
+  value       = module.static_web_apps.static_web_apps_id
+}
+
 output "static_web_apps_api_key" {
   description = "Map of api_key values across all static_web_apps, keyed the same as var.static_web_apps"
   value       = module.static_web_apps.static_web_apps_api_key
@@ -88,6 +93,11 @@ output "static_web_apps_tags" {
 }
 
 # --- azurerm_static_web_app_custom_domain ---
+output "static_web_app_custom_domains_id" {
+  description = "Map of id values across all static_web_app_custom_domains, keyed the same as var.static_web_app_custom_domains"
+  value       = module.static_web_app_custom_domains.static_web_app_custom_domains_id
+}
+
 output "static_web_app_custom_domains_domain_name" {
   description = "Map of domain_name values across all static_web_app_custom_domains, keyed the same as var.static_web_app_custom_domains"
   value       = module.static_web_app_custom_domains.static_web_app_custom_domains_domain_name
@@ -110,6 +120,11 @@ output "static_web_app_custom_domains_validation_type" {
 }
 
 # --- azurerm_static_web_app_function_app_registration ---
+output "static_web_app_function_app_registrations_id" {
+  description = "Map of id values across all static_web_app_function_app_registrations, keyed the same as var.static_web_app_function_app_registrations"
+  value       = module.static_web_app_function_app_registrations.static_web_app_function_app_registrations_id
+}
+
 output "static_web_app_function_app_registrations_function_app_id" {
   description = "Map of function_app_id values across all static_web_app_function_app_registrations, keyed the same as var.static_web_app_function_app_registrations"
   value       = module.static_web_app_function_app_registrations.static_web_app_function_app_registrations_function_app_id
