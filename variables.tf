@@ -12,6 +12,8 @@ Optional:
     - public_network_access_enabled
     - repository_branch
     - repository_token
+    - repository_token_key_vault_id (alternative to repository_token - read from Key Vault instead)
+    - repository_token_key_vault_secret_name (alternative to repository_token - read from Key Vault instead)
     - repository_url
     - sku_size
     - sku_tier
@@ -28,19 +30,21 @@ Nested static_web_app_function_app_registrations (azurerm_static_web_app_functio
 EOT
 
   type = map(object({
-    location                           = string
-    name                               = string
-    resource_group_name                = string
-    app_settings                       = optional(map(string))
-    configuration_file_changes_enabled = optional(bool) # Default: true
-    preview_environments_enabled       = optional(bool) # Default: true
-    public_network_access_enabled      = optional(bool) # Default: true
-    repository_branch                  = optional(string)
-    repository_token                   = optional(string)
-    repository_url                     = optional(string)
-    sku_size                           = optional(string) # Default: "Free"
-    sku_tier                           = optional(string) # Default: "Free"
-    tags                               = optional(map(string))
+    location                               = string
+    name                                   = string
+    resource_group_name                    = string
+    app_settings                           = optional(map(string))
+    configuration_file_changes_enabled     = optional(bool) # Default: true
+    preview_environments_enabled           = optional(bool) # Default: true
+    public_network_access_enabled          = optional(bool) # Default: true
+    repository_branch                      = optional(string)
+    repository_token                       = optional(string)
+    repository_token_key_vault_id          = optional(string)
+    repository_token_key_vault_secret_name = optional(string)
+    repository_url                         = optional(string)
+    sku_size                               = optional(string) # Default: "Free"
+    sku_tier                               = optional(string) # Default: "Free"
+    tags                                   = optional(map(string))
     basic_auth = optional(object({
       environments = string
       password     = string
