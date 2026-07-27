@@ -21,18 +21,18 @@ locals {
 }
 
 module "static_web_apps" {
-  source          = "git::https://github.com/AeternaModules/azurerm_static_web_app.git?ref=v4.80.0"
+  source          = "git::https://github.com/AeternaModules/azurerm_static_web_app.git?ref=v4.81.0"
   static_web_apps = local.static_web_apps
 }
 
 module "static_web_app_custom_domains" {
-  source                        = "git::https://github.com/AeternaModules/azurerm_static_web_app_custom_domain.git?ref=v4.80.0"
+  source                        = "git::https://github.com/AeternaModules/azurerm_static_web_app_custom_domain.git?ref=v4.81.0"
   static_web_app_custom_domains = local.static_web_app_custom_domains
   depends_on                    = [module.static_web_apps]
 }
 
 module "static_web_app_function_app_registrations" {
-  source                                    = "git::https://github.com/AeternaModules/azurerm_static_web_app_function_app_registration.git?ref=v4.80.0"
+  source                                    = "git::https://github.com/AeternaModules/azurerm_static_web_app_function_app_registration.git?ref=v4.81.0"
   static_web_app_function_app_registrations = local.static_web_app_function_app_registrations
   depends_on                                = [module.static_web_apps]
 }
